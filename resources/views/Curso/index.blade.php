@@ -16,7 +16,7 @@
            <td>{{$curso->nome}}</td>
             <td>
             <a href="curso/{{$curso->id}}" class="btn btn-warning">Editar</a>
-            <a href="curso{{$curso->id}}" class="btn btn-danger">Deletar</a>
+            <a href="curso{{$curso->id}}"  class="btn btn-danger">Deletar</a>
 
         </td>
         </tr>

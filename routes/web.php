@@ -31,5 +31,4 @@ Route::post('/novoResponsavel', 'responsavelController@salvar');
 Route::get('/template', 'TemplatesController@index');
 
 //curso
-Route::get('/curso', 'CursoController@index');
-Route::get('/curso/create', 'CursoController@create');
+Route::resource('/curso','CursoController');

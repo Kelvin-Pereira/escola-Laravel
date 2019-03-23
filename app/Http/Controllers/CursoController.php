@@ -7,33 +7,81 @@ use App\Curso;
 
 class CursoController extends Controller
 {
-   
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
 
-        $curso = new Curso();
-        
-        // Curso::destroy(4);
-        // $curso = new Curso();
-        // $curso->nome = 'Enfermagem';
-        // $curso->duracao = 5;
-        // $curso->save();
-        //  return Curso::all(); //returma um json comtudo do banco
-        // return view('Cursos.index');
-
+        $cursos = Curso::all();
+        return view('Curso.index',compact('cursos'));
     }
-    public function create(){
 
-        return view('Cursos.formulario');
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
-    public function media(){
 
-        return view('media');
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
-  
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

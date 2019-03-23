@@ -20,12 +20,12 @@ class CreateProfessoresTable extends Migration
             $table->string('cpf',14);
             $table->string('telefone',16);
             $table->string('email',100);
-            $table->integer('cep');
-            $table->string('logradoro',100);
-            $table->string('complemento',100);
-            $table->string('bairro',100);
-            $table->char('uf',2);
-            $table->string('municipio');
+            $table->integer('cep')->nullable();
+            $table->string('logradoro',100)->nullable();
+            $table->string('complemento',100)->nullable();
+            $table->string('bairro',100)->nullable();
+            $table->char('uf',2)->nullable();
+            $table->string('municipio')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

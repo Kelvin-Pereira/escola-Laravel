@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Professor;
 
 use Illuminate\Http\Request;
-use App\Curso;
+use App\Http\Controllers\Controller;
+use App\Professore;
 
-class CursoController extends Controller
+class ProfesorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-
-        $cursos = Curso::all();
-        return view('Curso.index',compact('cursos'));
+        $professores = Professore::all();
+        return view('professor.index',compact('professores'));
     }
 
     /**

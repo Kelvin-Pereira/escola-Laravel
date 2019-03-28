@@ -3,7 +3,7 @@
 @section('conteudo')
 <h1>Curso</h1>    
 
-    <a href="/curso/create" class="btn btn-warning">Novo</a><hr>    
+    <a href="{{ route('curso.store')  }}" class="btn btn-warning">Novo</a><hr>    
    <table class="table table-hover table-bordered table-striped">
        <tr>
            <th>id</th>

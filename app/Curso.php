@@ -9,4 +9,8 @@ class Curso extends Model
 {
     Use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    // public function diciplinas(){
+    //     return $this.hasMany('App\Diciplina');
+    // }
 }

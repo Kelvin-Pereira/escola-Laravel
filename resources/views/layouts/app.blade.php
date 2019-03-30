@@ -34,8 +34,9 @@
                     <a class="nav-link" href="{{ route('turma-aluno.index')  }}">Turma Aluno</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/curso">curso</a>
+                    {{-- <a class="nav-link" href="{{ route('dicliplina.index')  }}">Diciplinas</a> --}}
                 </li>
+            
                 
             </ul>
             

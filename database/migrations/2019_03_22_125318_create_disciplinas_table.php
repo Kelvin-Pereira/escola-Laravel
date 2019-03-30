@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiciplinasTable extends Migration
+class CreateDisciplinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDiciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('diciplinas', function (Blueprint $table) {
+        Schema::create('disciplinas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome',50)->nullable();
             $table->integer('cursos_id')->unsigned(); 
-            $table->foreign('cursos_id')->references('id')->on('cursos');// faz referencia para chave primaria da tabela de Curso
+            $table->foreign('cursos_id')->references('id')->on('cursos');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreateDiciplinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diciplinas');
+        Schema::dropIfExists('disciplinas');
     }
 }

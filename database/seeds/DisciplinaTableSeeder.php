@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Curso;
+use App\Disciplina;
 
-class CursoSeeder extends Seeder
+class DisciplinaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +12,8 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        Curso::create([
-            'nome' => "ADS",'duracao'=>2
+        Disciplina::create([
+            'nome' => "rede",'cursos_id'=>1
         ]);
-       
     }
 }

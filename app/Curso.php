@@ -10,7 +10,14 @@ class Curso extends Model
     Use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    // public function diciplinas(){
-    //     return $this.hasMany('App\Diciplina');
-    // }
+    protected $fillable = [
+        'nome',
+        'duracao',
+    ];
+
+    public function disciplinas(){
+        return $this->hasMany('App\Disciplina');
+        //nome da function = nome da tabela no banco de dados
+    }
+
 }

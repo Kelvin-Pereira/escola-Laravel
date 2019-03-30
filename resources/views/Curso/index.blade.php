@@ -18,7 +18,7 @@
            <tr>
            <td>{{$curso->id}}</td>
            <td>{{$curso->nome}}</td>
-           <td>{{$curso->diciplinas}}</td>
+           <td>{{$curso->disciplinas->cursos_id}}</td>
             <td>
             <a href="curso/{{$curso->id}}/edit" class="btn btn-warning btn-sl">Editar</a>
             <a href="curso{{$curso->id}}/destry"  class="btn btn-danger btn-sl ">Deletar</a>

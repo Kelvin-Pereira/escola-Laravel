@@ -1,7 +1,7 @@
 <?php
 
 
-//Route::resource('/media/aluno','media\MediaController');
+Route::get('/','Aluno\AlunoController@index');
 
 
 
@@ -11,6 +11,7 @@ Route::resource('/curso','Curso\CursoController');
 Route::resource('/profesor','Professor\ProfesorController');
 Route::resource('/turma','Turma\TurmaController');
 Route::resource('/turma-aluno','TurmaAluno\TurmaAlunoController');
-//Route::resource('/disciplina','disciplina\DisciplinaController');
+Route::resource('/disciplina','Disciplina\DisciplinaController');
+
                                         
 

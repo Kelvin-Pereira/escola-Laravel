@@ -16,7 +16,7 @@ class CreateTurmasTable extends Migration
         Schema::create('turmas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('disciplina_id')->unsigned(); 
-            $table->foreign('disciplina_id')->references('id')->on('diciplinas');
+            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
             $table->integer('profesore_id')->unsigned(); 
             $table->foreign('profesore_id')->references('id')->on('professores');
             $table->softDeletes();

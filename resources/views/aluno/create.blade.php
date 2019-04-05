@@ -4,29 +4,68 @@
 <div class="main main-raised">
     <h1 class="text-center">Cadastro de Eventos</h1><hr>
     <div class="container">
-{{-- 
-        @if ($erros->any())
-            <ul class="alert alert-warning">
-                @foreach ($erros->all() as $erro)
-            <li>{{ $erro }}</li>
-                @endforeach
-            </ul>
-        @endif --}}
 
-         {{-- laravel collective form --}}
-         {{ Form::open([ 'method'  => 'POST', 'route' => [ 'eventos.store' ] ]) }}
+         {{ Form::open([ 'method'  => 'POST', 'route' => [ 'aluno.store' ] ]) }}
          @csrf   
          <div class="row">
             <div class="col-3">
                 <div class="form-group bmd-form-group">
-                        {{ Form::label('Data:', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'data']) }}
+                    {{ Form::label('Nome', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'nome']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
-                    {{ Form::label('Horario', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'horas']) }}
+                    {{ Form::label('telefone', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'telefone']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('email', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'email']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('cep', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'cep']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('logradoro', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'logradoro']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('complemento', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'complemento']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('bairro', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'bairro']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('uf', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'uf']) }}
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('municipio', '',) }}
+                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'municipio']) }}
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="form-group bmd-form-group">
+                    {{ Form::label('data_nascimento', '',) }}
+                    {{ Form::date('title', '', ['class' => 'form-control','name'=>'data_nascimento']) }}
                 </div>
             </div>
          </div>

@@ -15,11 +15,11 @@
            <tr>
            <td>{{$disciplina->id}}</td>
            <td>{{$disciplina->nome}}</td>
-           <td>{{$disciplina->cursos->nome}}</td>
+           {{-- <td>{{$disciplina->cursos->nome}}</td> --}}
             <td>
 
-            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'disciplina.destroy', $curso->id ] ]) }}
-            <a href="disciplina/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'disciplina.destroy', $disciplina->id ] ]) }}
+            <a href="disciplina/{{ $disciplina->id }}/edit " class="btn btn-warning ">Editar</a>
             @csrf   
             {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
             

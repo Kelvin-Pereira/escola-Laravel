@@ -26,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('Curso.form');
+        
     }
 
     /**
@@ -59,7 +59,7 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

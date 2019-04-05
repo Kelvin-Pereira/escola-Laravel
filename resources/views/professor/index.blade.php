@@ -17,8 +17,8 @@
             <td>
             
 
-            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'professor.destroy', $curso->id ] ]) }}
-            <a href="professor/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'profesor.destroy', $professor->id ] ]) }}
+            <a href="profesor/{{ $professor->id }}/edit " class="btn btn-warning ">Editar</a>
             @csrf   
             {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
             

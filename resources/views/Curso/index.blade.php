@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('conteudo')
 {{-- <div class=" row justify-content-center"> --}}
@@ -21,13 +21,13 @@
            <td>{{$curso->nome}}</td>
            {{-- <td>{{$curso->disciplinas->nome}}</td> --}}
             <td>
-           
 
-                <form action="curso/{{$curso->id}}" method="delete">
-                     <a href="curso/{{$curso->id}}/edit" class="btn btn-warning btn-sl">Editar</a>
-                     <a type="submit" class="btn btn-danger">Deletar</a>
-                     <button tupe="submit">Enviar</button>
-                </form>
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'curso.destroy', $curso->id ] ]) }}
+            <a href="eventos/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            @csrf   
+            {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
+            
+            {{ Form::close() }}
 
             </td>
         </tr>

@@ -1,7 +1,8 @@
 @extends('layouts.app');
 
 @section('conteudo')
-{{-- <div class=" row contet-justifil-center"> --}}
+{{-- <div class=" row justify-content-center"> --}}
+{{-- <a href="/show/{{ $Advogado->id }}" class="btn-sm btn-info ">Ver</a> --}}
 {{-- <div class="col-8"></div>
 </div> --}}
 <h1>Curso</h1>    
@@ -11,19 +12,24 @@
        <tr>
            <th>id</th>
            <th>Nome</th>
-           <th>Disciplina</th>
+           {{-- <th>Disciplina</th> --}}
            <th>Açoes</th>
        </tr>
        @foreach ($cursos as $curso)
            <tr>
            <td>{{$curso->id}}</td>
            <td>{{$curso->nome}}</td>
-           <td>{{$curso->disciplinas->cursos_id}}</td>
+           {{-- <td>{{$curso->disciplinas->nome}}</td> --}}
             <td>
-            <a href="curso/{{$curso->id}}/edit" class="btn btn-warning btn-sl">Editar</a>
-            <a href="curso{{$curso->id}}/destry"  class="btn btn-danger btn-sl ">Deletar</a>
+           
 
-        </td>
+                <form action="curso/{{$curso->id}}" method="delete">
+                     <a href="curso/{{$curso->id}}/edit" class="btn btn-warning btn-sl">Editar</a>
+                     <a type="submit" class="btn btn-danger">Deletar</a>
+                     <button tupe="submit">Enviar</button>
+                </form>
+
+            </td>
         </tr>
         @endforeach
    </table>

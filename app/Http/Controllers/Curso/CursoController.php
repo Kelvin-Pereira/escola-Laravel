@@ -82,6 +82,6 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return redirect()->route('curso.index');
     }
 }

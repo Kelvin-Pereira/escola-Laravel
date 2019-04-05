@@ -82,6 +82,9 @@ class ProfesorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $professores = Professore::findOrFail($id);                                       
+        $professores->delete();
+
+        return redirect()->route('profesor.index');
     }
 }

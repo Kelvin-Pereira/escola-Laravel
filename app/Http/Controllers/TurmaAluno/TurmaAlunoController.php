@@ -82,6 +82,9 @@ class TurmaAlunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $turmaAlunos = TurmaAluno::findOrFail($id);                                       
+        $turmaAlunos->delete();
+
+        return redirect()->route('turma-aluno.index');
     }
 }

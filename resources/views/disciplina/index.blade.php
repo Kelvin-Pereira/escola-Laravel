@@ -17,8 +17,13 @@
            <td>{{$disciplina->nome}}</td>
            <td>{{$disciplina->cursos->nome}}</td>
             <td>
-            <a href="dicliplina/{{$disciplina->id}}" class="btn btn-warning btn-sl">Editar</a>
-            <a href="dicliplina{{$disciplina->id}}"  class="btn btn-danger btn-sl">Deletar</a>
+
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'disciplina.destroy', $curso->id ] ]) }}
+            <a href="disciplina/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            @csrf   
+            {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
+            
+            {{ Form::close() }}
 
         </td>
         </tr>

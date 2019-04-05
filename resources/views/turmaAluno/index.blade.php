@@ -15,8 +15,13 @@
            <td>{{$turma->id}}</td>
            <td>{{$turma->nome}}</td>
             <td>
-            <a href="turma/{{$turma->id}}" class="btn btn-warning">Editar</a>
-            <a href="turma{{$turma->id}}"  class="btn btn-danger">Deletar</a>
+
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'turma.destroy', $curso->id ] ]) }}
+            <a href="turma/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            @csrf   
+            {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
+            
+            {{ Form::close() }}
 
         </td>
         </tr>

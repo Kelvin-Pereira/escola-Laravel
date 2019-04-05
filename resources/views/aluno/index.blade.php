@@ -15,8 +15,15 @@
            <td>{{$aluno->id}}</td>
            <td>{{$aluno->nome}}</td>
             <td>
-            <a href="aluno/{{$aluno->id}}" class="btn btn-warning">Editar</a>
-            <a href="aluno{{$aluno->id}}"  class="btn btn-danger">Deletar</a>
+        
+
+            {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'aluno.destroy', $curso->id ] ]) }}
+            <a href="aluno/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
+            @csrf   
+            {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
+            
+            {{ Form::close() }}
+
 
         </td>
         </tr>

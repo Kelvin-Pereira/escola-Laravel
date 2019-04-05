@@ -82,6 +82,9 @@ class DisciplinaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $disciplinas = Disciplina::findOrFail($id);                                       
+        $disciplinas->delete();
+
+        return redirect()->route('disciplinas.index');
     }
 }

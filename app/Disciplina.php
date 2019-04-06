@@ -14,9 +14,9 @@ class Disciplina extends Model
       'nome',
   ];
 
-      public function cursos(){
+      public function curso(){
             return $this->belongsTo('App\Curso');
-            //nome da function = nome da tabela no banco de dados
+            
         }
 
         

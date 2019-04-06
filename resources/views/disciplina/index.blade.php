@@ -15,7 +15,7 @@
            <tr>
            <td>{{$disciplina->id}}</td>
            <td>{{$disciplina->nome}}</td>
-           {{-- <td>{{$disciplina->cursos->nome}}</td> --}}
+           <td>{{$disciplina->curso->nome}}</td>
             <td>
 
             {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'disciplina.destroy', $disciplina->id ] ]) }}

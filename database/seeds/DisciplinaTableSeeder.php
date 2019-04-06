@@ -13,7 +13,7 @@ class DisciplinaTableSeeder extends Seeder
     public function run()
     {
         Disciplina::create([
-            'nome' => "rede",'cursos_id'=>1
+            'nome' => "rede",'curso_id'=>1
         ]);
     }
 }

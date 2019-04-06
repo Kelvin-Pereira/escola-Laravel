@@ -17,7 +17,7 @@ class Curso extends Model
 
     public function disciplinas(){
         return $this->hasMany('App\Disciplina');
-        //nome da function = nome da tabela no banco de dados
+     
     }
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\TurmaAluno;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\TurmaAluno;
+use App\Turma;
+use App\Aluno;
 
 class TurmaAlunoController extends Controller
 {
@@ -16,7 +18,7 @@ class TurmaAlunoController extends Controller
     public function index()
     {
         $turmas = TurmaAluno::all();
-        return view('turma.index',compact('turmas'));
+        return view('turmaAluno.index',compact('turmas'));
     }
 
     /**
@@ -26,7 +28,9 @@ class TurmaAlunoController extends Controller
      */
     public function create()
     {
-        //
+        $alunos = Aluno::all();
+        $turmas = Turma::all();
+        return view('turmaAluno.create',compact('alunos','turmas'));
     }
 
     /**
@@ -37,7 +41,9 @@ class TurmaAlunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $turmas = new TurmaAluno($request->all());
+        $turmas->save();
+        return redirect(route('turma-aluno.index') );
     }
 
     /**
@@ -59,7 +65,11 @@ class TurmaAlunoController extends Controller
      */
     public function edit($id)
     {
-        //
+       $turmaAluno = TurmaAluno::findOrFail($id); 
+       $alunos = Aluno::all();
+       $turmas = Turma::all();
+       return view('turmaAluno.edit',compact('alunos','turmas','turmaAluno'));
+
     }
 
     /**
@@ -71,7 +81,14 @@ class TurmaAlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $turmaAluno = TurmaAluno::find($id);
+
+        $turmaAluno = TurmaAluno::find($id);
+        $turmaAluno ->update($request->all());
+        $turmaAluno->save();
+     
+        return redirect()->route('turma-aluno.index');
+
     }
 
     /**

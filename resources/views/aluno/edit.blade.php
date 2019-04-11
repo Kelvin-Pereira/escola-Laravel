@@ -2,70 +2,70 @@
 @section('conteudo')
 <br>
 <div class="main main-raised">
-    <h1 class="text-center">Cadastro de alunos</h1><hr>
+    <h1 class="text-center">Cadastro de Alunos</h1><hr>
     <div class="container">
 
-         {{ Form::open([ 'method'  => 'POST', 'route' => [ 'aluno.store' ] ]) }}
+        {{ Form::open(['method'=>'PUT', 'route'=>['aluno.update', $alunos->id ] ]) }}
          @csrf   
          <div class="row">
             <div class="col-3">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('Nome', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'nome']) }}
+                    {{ Form::text('title', $alunos->nome, ['class' => 'form-control','name'=>'nome']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('telefone', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'telefone']) }}
+                    {{ Form::text('title', $alunos->telefone, ['class' => 'form-control','name'=>'telefone']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('email', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'email']) }}
+                    {{ Form::text('title', $alunos->email, ['class' => 'form-control','name'=>'email']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('cep', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'cep']) }}
+                    {{ Form::text('title', $alunos->cep, ['class' => 'form-control','name'=>'cep']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('logradoro', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'logradoro']) }}
+                    {{ Form::text('title', $alunos->logradoro, ['class' => 'form-control','name'=>'logradoro']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('complemento', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'complemento']) }}
+                    {{ Form::text('title', $alunos->complemento, ['class' => 'form-control','name'=>'complemento']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('bairro', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'bairro']) }}
+                    {{ Form::text('title', $alunos->bairro, ['class' => 'form-control','name'=>'bairro']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('uf', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'uf']) }}
+                    {{ Form::text('title', $alunos->uf, ['class' => 'form-control','name'=>'uf']) }}
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('municipio', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'municipio']) }}
+                    {{ Form::text('title', $alunos->municipio, ['class' => 'form-control','name'=>'municipio']) }}
                 </div>
             </div>
             <div class="col-3">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('data_nascimento', '',) }}
-                    {{ Form::date('title', '', ['class' => 'form-control','name'=>'data_nascimento']) }}
+                    {{ Form::date('title', $alunos->data_nascimento, ['class' => 'form-control','name'=>'data_nascimento']) }}
                 </div>
             </div>
          </div>

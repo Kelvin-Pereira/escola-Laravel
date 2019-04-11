@@ -28,7 +28,7 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
-        //
+        return view('disciplina.create');
     }
 
     /**

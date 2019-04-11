@@ -26,7 +26,7 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        //
+        return view('professor.create');
     }
 
     /**
@@ -37,7 +37,9 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $professor = new Professore($request->all());
+         $professor->save();
+         return redirect(route('profesor.index') );
     }
 
     /**
@@ -59,7 +61,9 @@ class ProfesorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $professor = Professore::find($id);
+        
+        return view('professor.edit', array('professor'=>$professor));
     }
 
     /**
@@ -71,7 +75,11 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $professor = Professore::find($id);
+        $professor ->update($request->all());
+        $professor->save();
+     
+        return redirect()->route('profesor.index');
     }
 
     /**

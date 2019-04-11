@@ -5,7 +5,6 @@ Route::get('/','Aluno\AlunoController@index');
 
 
 
-//curso
 Route::resource('/aluno','Aluno\AlunoController');
 Route::resource('/curso','Curso\CursoController');
 Route::resource('/profesor','Professor\ProfesorController');

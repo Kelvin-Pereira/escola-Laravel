@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Turma;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Turma;
+use App\Disciplina;
+use App\Professore;
 
 class TurmaController extends Controller
 {
@@ -15,8 +17,18 @@ class TurmaController extends Controller
      */
     public function index()
     {
+        
+        // $turmas = Turma::find(1);
         $turmas = Turma::all();
-        return view('turmaAluno.index',compact('turmas'));
+    
+        // foreach ($turmas as $item) {
+        //     echo $item->disciplina->nome;
+        //     // só professor que esta zuado cuidado ip 
+        //     echo '<br>';
+        //     echo $item->profesosr->nome;die;
+        // }
+   
+        return view('turma.index',compact('turmas'));
     }
 
     /**
@@ -26,7 +38,10 @@ class TurmaController extends Controller
      */
     public function create()
     {
-        //
+        $disciplinas = Disciplina::all();
+        $professores = Professore::all();
+
+        return view('turma.create',compact('disciplinas','professores'));
     }
 
     /**
@@ -37,7 +52,9 @@ class TurmaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $turmas = new Turma($request->all());
+         $turmas->save();
+         return redirect(route('turma.index') );
     }
 
     /**

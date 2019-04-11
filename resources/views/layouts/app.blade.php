@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('disciplina.index')  }}">Diciplinas</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('aluno.index')  }}">Diciplinas</a>
+                </li>
             
                 
             </ul>

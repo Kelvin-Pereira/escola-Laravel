@@ -18,6 +18,7 @@ class Disciplina extends Model
             return $this->belongsTo('App\Curso');
             
         }
+      
 
         
 }

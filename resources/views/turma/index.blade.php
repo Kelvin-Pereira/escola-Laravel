@@ -1,20 +1,23 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('conteudo')
 <h1>Turma</h1>    
 
-    <a href="{{ route('turma.store')  }}" class="btn btn-warning">Novo</a><hr>    
+    <a href="{{ route('turma.create')  }}" class="btn btn-warning">Novo</a><hr>    
    <table class="table table-hover table-bordered table-striped">
        <tr>
            <th>id</th>
-           <th>Nome</th>
+           <th>disciplina</th>
+           <th>Professor</th>
            <th>Açoes</th>
        </tr>
        @foreach ($turmas as $turma)
            <tr>
            <td>{{$turma->id}}</td>
-           <td>{{$turma->nome}}</td>
-            <td>
+
+           <td>{{$turma->disciplina->nome}}</td>
+           <td>{{$turma->profesosr->nome}}</td>
+           <td>
   
 
             {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'turma.destroy', $turma->id ] ]) }}

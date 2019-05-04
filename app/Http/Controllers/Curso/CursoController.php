@@ -15,11 +15,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-
-       
-
         $cursos = Curso::all();
-        return view('Curso.index',compact('cursos'));
+        return view('curso.index',compact('cursos'));
     }
 
     /**
@@ -29,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        
+        return view('curso.create');
     }
 
     /**
@@ -40,7 +37,9 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cursos = new Curso($request->all());
+         $cursos->save();
+         return redirect(route('curso.index') );
     }
 
     /**
@@ -62,7 +61,8 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        
+        $cursos = Curso::find($id);
+        return view('curso.edit', array('cursos'=>$cursos));
     }
 
     /**
@@ -74,7 +74,11 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cursos = Curso::find($id);
+        $cursos ->update($request->all());
+        $cursos->save();
+     
+        return redirect()->route('curso.index');
     }
 
     /**

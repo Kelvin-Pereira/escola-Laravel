@@ -1,10 +1,10 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('conteudo')
 <h1>Aluno</h1>    
 
     <a href="{{ route('aluno.create')  }}" class="btn btn-warning">Novo</a><hr>    
-   <table class="table table-hover table-bordered table-striped">
+    <table class="table table-hover table-bordered table-striped">
        <tr>
            <th>id</th>
            <th>Nome</th>
@@ -29,6 +29,6 @@
         </tr>
         @endforeach
    </table>
-   
-
+   <br>
 @endsection
+

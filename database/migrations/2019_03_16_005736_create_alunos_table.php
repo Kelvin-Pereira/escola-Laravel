@@ -24,7 +24,7 @@ class CreateAlunosTable extends Migration
             $table->string('bairro',100)->nullable();
             $table->char('uf',2)->nullable();
             $table->string('municipio')->nullable();
-            $table->timestamp('data_nascimento');
+            $table->date('data_nascimento');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -84,4 +84,17 @@ class AlunoController extends Controller
     {
         //
     }
+
+    public function verificarEmail($email){
+
+
+        $qtd =  Aluno::where('email',$email)->count();
+        $mensagem = $qtd ? "Já existe um registro  com o e-mail {$email} ": 'não existe registro com o email informado';
+        return [
+            'existe' => (bool) $qtd,
+            'mensagem' => $mensagem,
+        ];
+    }
+
+
 }

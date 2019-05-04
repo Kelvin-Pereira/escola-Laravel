@@ -23,7 +23,9 @@
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('email', '',) }}
-                    {{ Form::text('title', '', ['class' => 'form-control','name'=>'email']) }}
+                    {{-- {{ Form::text('email', '', ['class' => 'form-control','name'=>'email','id'=>'email']) }} --}}
+                    <input type="text" class="form-control" name="email" id="email">
+                    <span id="mensagem-email" style="color: red;"></span>
                 </div>
             </div>
             <div class="col-2">
@@ -81,5 +83,24 @@
        
     </div>
 </div>
+
+<script>
+$(function(){
+    $('#email').change(function(){
+        $.ajax({
+            url: '/verificar-email/' + $('#email').val(),
+            success: function (dados){
+                if(dados.existe){
+                    $('#mensagem-email').html(dados.mensagem);
+                    $('#email').val('')
+                }
+            }
+
+        });
+    });
+}); 
+    
+
+</script>
     
 @endsection

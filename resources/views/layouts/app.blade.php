@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <title>Template Padrão</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 
 </head>
 <body class="bg-light">
@@ -60,4 +63,6 @@
 
     </main>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </html>

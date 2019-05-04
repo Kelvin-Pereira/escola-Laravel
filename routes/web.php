@@ -2,6 +2,7 @@
 
 
 Route::get('/','Aluno\AlunoController@index');
+Route::get('/verificar-email/{email}','Aluno\AlunoController@verificarEmail');
 
 
 

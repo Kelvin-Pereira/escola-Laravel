@@ -15,7 +15,7 @@ class AlunosSeeder extends Seeder
             'nome'             => 'Kelvin',
             'telefone'         => '99999-9999',
             'email'            => 'Kelvin@gmail.com',
-            'cep'              =>  987,
+            'cep'              =>  '987',
             'logradoro'        => 'Mercado Ideal',
             'complemento'      => 'Quadra G',
             'bairro'           => 'Buritis',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Professor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Professore;
+use App\Aluno;
 
 class ProfesorController extends Controller
 {
@@ -94,5 +95,27 @@ class ProfesorController extends Controller
         $professores->delete();
 
         return redirect()->route('profesor.index');
+    }
+    public function verificarNome($nome)
+    {
+        $nomeAlunos = Aluno::where('nome',$nome = $nome)->count();
+        $nomeProfessor = Professore::where('nome',$nome = $nome)->count();
+
+        // $qtd =  Professore::find('nome',$nome)->count();
+        $mensagem = "existe $nomeAlunos Alunos com o mesmo nome e $nomeProfessor Professores com o mesmo nome ";
+        return [
+            'mensagem' => $mensagem,
+        ];
+    }
+    public function verificarcpf($cpf)
+    {
+
+        $qtd = Professore::where('cpf',$cpf = $cpf)->count();
+
+        $mensagem = $qtd ? "Já existe um cpf {$cpf} ": ' ';
+        return [
+            'existe' => (bool) $qtd,
+            'mensagem' => $mensagem,
+        ];
     }
 }

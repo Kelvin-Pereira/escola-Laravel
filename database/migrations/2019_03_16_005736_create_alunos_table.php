@@ -18,7 +18,7 @@ class CreateAlunosTable extends Migration
             $table->string('nome',100);
             $table->string('telefone',16);
             $table->string('email',50);
-            $table->integer('cep')->nullable();
+            $table->string('cep')->nullable();
             $table->string('logradoro',100)->nullable();
             $table->string('complemento',100)->nullable();
             $table->string('bairro',100)->nullable();

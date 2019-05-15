@@ -1,0 +1,134 @@
+Recuperando um modelo por chave primária ou lançar uma exceção
+         try{
+             $cargo = Cargo::find($id); <<
+             return view('cargo.edit', compact('cargo', $cargo));
+         } catch(Exception $e){
+             throw new exception('Não foi possível recuperar os dados do cargo '.$cargo->tx_nome.' !');
+         }
+
+-------------------------------------------------------------------------------------------------------------------
+
+//---------------------------------------
+//----    Modelo padrao para rotas   ----
+//---------------------------------------
+// $this::group(['prefix' => 'cargo'], function () {
+//     $this::get('/index',        ['uses' => 'CargoController@index',   'as' => 'cargo.index']);
+//     $this::get('/form',         ['uses' => 'CargoController@create',  'as' => 'cargo.create']);
+//     $this::post('/store',       ['uses' => 'CargoController@store',   'as' => 'cargo.store']);
+//     $this::get('/edit/{id}',    ['uses' => 'CargoController@edit',    'as' => 'cargo.edit']);
+//     $this::get('/destroy/{id}', ['uses' => 'CargoController@destroy', 'as' => 'cargo.destroy']);
+// });
+// Exemplo dos actions dos formulario
+// action=" {{ route('cargo.index')  }} "
+// action=" {{ route('cargo.create')  }} "
+// action=" {{ route('cargo.store')  }} "
+// action=" {{ route('cargo.edit')  }} "
+// action=" {{ route('cargo.destroy')  }} "
+
+===========================================================================================================================
+
+--------------------------
+-----     Seeder     -----
+--------------------------
+
+// Comando para Criar 
+php artisan make:model Nome -m
+php artisan make:seeder UsersTableSeeder
+
+// Comando para Rodar as Seeders
+php artisan db:seed
+php artisan db:seed --class=NomeSeeder
+php artisan migrate --seed
+php artisan migrate:refresh --seed
+----------------------------------------------------------
+//Exemplo de uma Seeder Criada:
+
+use App\Nome_Da_Model
+
+public function run(){
+Cliente::create([
+            'nome'    => 'Maria',
+            'email'    => 'Maria@gmail.com',
+            'telefone1'  => '(61) 99999-9999',
+            'telefone2'  => '(61) 99999-9999',
+        ]);
+}
+------------------------------------------------------------
+Depois que criar as Seeder:
+Arquivo: database\seeds\DatabaseSeeder.php
+
+public function run(){
+$this->call([
+            Nome_Da_Seeder::class,
+        ]);
+}
+===============================================================================================================
+instalat composer
+composer create-project --prefer-dist laravel/laravel escola
+
+npm i  ; node js, gerenciador de pacotes  
+php artisan serve
+npm run dev ; preparar aplicação para ultilização do "bootstrap" "vue" resources/js/app.js
+
+php artisan serve
+
+//criar Controller
+php artisan make:controller CursoController
+
+//Configurando rotas
+Route::get('/curso','CursoController@index');
+
+//Corrigingo bug do Mysql 
+Arquivo: app\Providers\AppServiceProvider.php
+
+  public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
+    obs: Criar o Banco
+
+//Exucutar Migrate
+php artisan migrate
+php artisan migrate:fresh      //Apaga todo do banco, Drop e cria as tabelas novamente
+php artisan migrate:roolback   //apaga ultima tabela
+
+//criar arquivo Migrate
+php artisan make:migration --create=alunos  create_curso
+
+
+//criar model
+
+php artisan make:model Nome -m
+-------------------------
+-----     CRUDS     -----
+-------------------------
+
+// salvar e listar
+User App\Model
+$curso = new Curso();
+        $curso->nome = 'Redes';
+        $curso->duracao = 6;
+        $curso->save();        //Salva no Banco
+        return Curso::all();   //retorna um Json 
+
+// Deletar 
+Curso::destroy(4);
+
+//exclusao logica
+ $table->softDeletes(); // criar atributo na tabela do banco de dados migrate
+
+ model
+ use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Curso extends Model
+{
+    Use SoftDeletes;
+    protected $dates = ['deleted_at'];
+}
+
+//Relacionamente tabela 
+ $table->integer('curso__id')->unsingned(); //
+ $table->foreing('curso__id')->references('id')->on('cursos');
+
+ 

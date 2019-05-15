@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             TurmasSeeder::class,
             AlunosSeeder::class,
             TurmaAlunosSeeder::class,
+            UfTableSeeder::class,
+            MunicipioTableSeeder::class,
            
          ] );
     }

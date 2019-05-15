@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Aluno;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Aluno;
+use App\Municipio;
+use App\Uf;
 
 class AlunoController extends Controller
 {
@@ -26,7 +28,9 @@ class AlunoController extends Controller
      */
     public function create()
     {
-        return view('aluno.create');
+        $municipios = Municipio::all();
+        $ufs = Uf::all();
+        return view('aluno.create',compact('ufs','municipios'));
     }
 
     /**

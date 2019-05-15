@@ -34,6 +34,30 @@
                     {{ Form::text('title', '', ['class' => 'form-control','name'=>'cep']) }}
                 </div>
             </div>
+
+            {{-- uf --}}
+            <div class="form-group col-3">
+                <label for="exampleFormControlSelect1">Uf</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="municipio" required>
+                    <option value="">Selecione UF</option>
+                        @foreach ($ufs as $uf)
+                        <option value=" {{$uf->id}} "> {{$uf->sigla}} </option>
+                        @endforeach
+                </select>
+              </div>
+
+            {{-- municipio --}}
+            <div class="form-group col-3">
+                <label for="exampleFormControlSelect1">Municipio</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="municipio" required>
+                        <option value="">Selecione municipio</option>
+                    @foreach ($municipios as $municipio)
+                        <option value=" {{$municipio->id}} "> {{$municipio->nome}} </option>
+                        @endforeach
+                </select>
+              </div>
+
+
             <div class="col-2">
                 <div class="form-group bmd-form-group">
                     {{ Form::label('logradoro', '',) }}

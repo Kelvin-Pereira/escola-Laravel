@@ -1,0 +1,31 @@
+<script>
+$(function(){
+    $('#email').change(function(){
+        $.ajax({
+            url: '/verificar-email/' + $('#email').val(),
+            success: function (dados){
+                if(dados.existe){
+                    $('#mensagem-email').html(dados.mensagem);
+                    $('#email').val('')
+                }
+            }
+
+        });
+    });
+
+    $('#uf_id').change(function(){
+        $.ajax({
+            url: '/municipio/recuperar-por-uf/' + $('#uf_id').val(),
+            success: function (dados){
+                $('#municipio_id').html('<option value="">Selecione</option>');
+                dados.forEach(function(obj){
+                    $('#municipio_id').append('<option value="">'+obj.id+'">'+obj.nome + '</option>');
+                })
+            }
+
+        });
+    });
+}); 
+    
+
+</script>

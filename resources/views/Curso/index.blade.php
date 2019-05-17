@@ -3,33 +3,30 @@
 @section('conteudo')
 <h1>Curso</h1>    
 
-    <a href="{{ route('curso.create')  }}" class="btn btn-warning">Novo</a><hr>    
-   <table class="table table-hover table-bordered table-striped">
-       <tr>
-           <th>id</th>
-           <th>Nome</th>
-           {{-- <th>Disciplina</th> --}}
-           <th>Açoes</th>
-       </tr>
-       @foreach ($cursos as $curso)
-           <tr>
-           <td>{{$curso->id}}</td>
-           <td>{{$curso->nome}}</td>
-           {{-- array --}}
-           {{-- <td>{{$curso->disciplinas[0]->nome}}</td>  --}}
-            <td>
+<div class="row">
+    <div class="col-md-3">
+        <a href="{{ route('curso.create')  }}" class="btn btn-warning">Novo</a><hr>  
+        <div    class="col-md-4 offset-5 text-right mb-3">
+            <input id="search" type="text" clas="form-control" placeholder="Digite o curso">
+            <span style="color: red" id="mensagem"></span>
 
-                {{ Form::open([ 'method'  => 'DELETE', 'route' => [ 'curso.destroy', $curso->id ] ]) }}
-                <a href="curso/{{ $curso->id }}/edit " class="btn btn-warning ">Editar</a>
-                @csrf   
-                {{ Form::submit('Excluir',['class' => 'btn btn-danger ']) }}
-                
-                {{ Form::close() }}
-
-            </td>
-        </tr>
-        @endforeach
-   </table>
+        </div>
+    </div>
+    <div class="col-md-12" id="listagem"></div>
    
+</div>
+
+<script>    
+    $(function() {
+            $('#search').keyup(function(){
+                if(!$('#search').val() || $('#search').val().length >= 3){
+                    $('#listagem').load('/curso/listar/' + $('#search').val());
+                }else{
+                    $('#mensagem').html('Digite ao menos 3 caracteres');
+                }
+            }).keyup();
+    })
+</script>
+     
 
 @endsection

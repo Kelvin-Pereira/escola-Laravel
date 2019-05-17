@@ -15,8 +15,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::all();
-        return view('curso.index',compact('cursos'));
+        
+        return view('curso.index');
     }
 
     /**
@@ -87,12 +87,19 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
        
         $curso = Curso::findOrFail($id);                                       
         $curso->delete();
 
         return redirect()->route('curso.index');
+    }
+    public function listar($curso = null){
+       
+        // $cursos = Curso::all();
+        $cursos = Curso::where('nome','like',"%{$curso}%")->get();    
+                                     
+    
+        return view('Curso.listagem',compact('cursos'));
     }
 }

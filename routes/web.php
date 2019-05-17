@@ -6,6 +6,9 @@ Route::get('/','Aluno\AlunoController@index');
 //# Aluno ajax
 Route::get('/verificar-email/{email}','Aluno\AlunoController@verificarEmail');
 
+// curso listagem
+Route::get('/curso/listar/{curso?}','Curso\CursoController@listar');
+
 //# Professor ajax
 Route::get('/verificar-nome/{nome}','Professor\ProfesorController@verificarNome');
 Route::get('/verificar-cpf/{cpf}','Professor\ProfesorController@verificarcpf');

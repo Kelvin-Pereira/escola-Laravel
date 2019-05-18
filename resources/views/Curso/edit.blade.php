@@ -18,8 +18,15 @@
            {{ Form::number('title',  $cursos->duracao, ['class' => 'form-control','name'=>'duracao']) }}
        </div>
    </div>
-
 </div>
+
+   <div class="form-group">
+       <label for="">Foto</label>
+   <img  width="100%" src="/storage/cursos/{{$cursos->foto}}" alt="{{$cursos->nome}}">
+   <input type="file" class="form-group" name="foto">
+
+   </div>
+
 <br>
 <!-- Submit -->
 <div class="">

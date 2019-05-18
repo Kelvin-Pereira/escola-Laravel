@@ -36,9 +36,25 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $cursos = new Curso($request->all());
-         $cursos->save();
+    { 
+        $curso = new Curso();
+
+        if($request->id){
+            $curso = $curso->find($request->id);
+        }
+
+        $curso->fill($request->all());
+
+        // UPLOADER de arquivo
+        $arquivo = $request->file('foto');
+
+        if(!$arquivo->getError()){
+            $arquivo->store('cursos');
+            $curso->foto = $arquivo->hashName();
+        }
+  
+       
+         $curso->save();
          return redirect(route('curso.index') );
     }
 

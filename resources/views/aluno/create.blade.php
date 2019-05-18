@@ -5,7 +5,8 @@
     <h1 class="text-center">Cadastro de alunos</h1><hr>
     <div class="container">
 
-         {{ Form::open([ 'method'  => 'POST', 'route' => [ 'aluno.store' ] ]) }}
+         {{-- {{ Form::open([ 'method'  => 'POST', 'route' => [ 'aluno.store' ] ]) }} --}}
+         <form action="/aluno" method="post" enctype="multipart/form-data" >
          @csrf   
          <div class="row">
             <div class="col-3">
@@ -95,6 +96,12 @@
                 </div>
             </div>
          </div>
+         <div class="col-2">
+            <div class="form-group bmd-form-group">
+                <label for="">Foto</label>
+                <input type="file" clas="form-control" name="foto">
+            </div>
+        </div>
          <br>
          <!-- Submit -->
          <div class="text-right">

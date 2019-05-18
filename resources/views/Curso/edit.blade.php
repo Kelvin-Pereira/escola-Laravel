@@ -4,6 +4,7 @@
 <h1>Curso</h1>   
 
 {{ Form::open([ 'method'  => 'PUT', 'route' => ['curso.update', $cursos->id ] ]) }}
+{{-- <form action="/curso" method="PUT" enctype="multipart/form-data" > --}}
 @csrf   
 <div class="row">
    <div class="col-3">

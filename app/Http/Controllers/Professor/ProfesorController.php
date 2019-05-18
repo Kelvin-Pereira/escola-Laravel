@@ -38,9 +38,28 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-         $professor = new Professore($request->all());
+
+        // dd($request->all());
+        $professor = new Professore();
+
+        if($request->id){
+            $professor = $professor->find($request->id);
+        }
+
+        $professor->fill($request->all());
+
+        // UPLOADER de arquivo
+        $arquivo = $request->file('foto');
+
+        if(!$arquivo->getError()){
+            $arquivo->store('professor');
+            $professor->foto = $arquivo->hashName();
+        }
+  
+       
          $professor->save();
          return redirect(route('profesor.index') );
+
     }
 
     /**

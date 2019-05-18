@@ -72,6 +72,14 @@
            {{ Form::text('title', $professor->municipio, ['class' => 'form-control','name'=>'municipio']) }}
        </div>
    </div>
+
+   <div class="form-group">
+    <label for="">Foto</label>
+<img  width="100%" src="/storage/professor/{{$professor->foto}}" alt="{{$professor->nome}}">
+<input type="file" class="form-group" name="foto">
+
+</div>
+
 </div>
 <br>
 <!-- Submit -->

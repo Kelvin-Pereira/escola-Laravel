@@ -41,10 +41,28 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
-        
-         $alunos = new Aluno($request->all());
-         $alunos->save();
+        // dd($request->all());
+        $aluno = new Aluno();
+
+        if($request->id){
+            $aluno = $aluno->find($request->id);
+        }
+
+        $aluno->fill($request->all());
+
+        // UPLOADER de arquivo
+        $arquivo = $request->file('foto');
+
+        if(!$arquivo->getError()){
+            $arquivo->store('alunos');
+            $aluno->foto = $arquivo->hashName();
+        }
+  
+       
+         $aluno->save();
          return redirect(route('aluno.index') );
+
+
     }
 
     /**

@@ -3,7 +3,8 @@
 @section('conteudo')
 <h1>Professor</h1>   
 
-{{ Form::open([ 'method'  => 'POST', 'route' => [ 'profesor.store' ] ]) }}
+{{-- {{ Form::open([ 'method'  => 'POST', 'route' => [ 'profesor.store' ] ]) }} --}}
+<form action="/profesor" method="post" enctype="multipart/form-data" >
 @csrf   
 <div class="row">
    <div class="col-3">
@@ -76,6 +77,14 @@
            {{ Form::text('title', '', ['class' => 'form-control','name'=>'municipio','id'=>'municipio']) }}
        </div>
    </div>
+
+    <div class="col-2">
+        <div class="form-group bmd-form-group">
+            <label for="">Foto</label>
+            <input type="file" clas="form-control" name="foto">
+        </div>
+    </div>
+
 </div>
 <br>
 <!-- Submit -->

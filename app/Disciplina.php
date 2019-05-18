@@ -12,6 +12,7 @@ class Disciplina extends Model
 
     protected $fillable = [
       'nome',
+      'curso_id',
   ];
 
       public function curso(){

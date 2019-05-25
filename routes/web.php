@@ -1,7 +1,11 @@
 <?php
 
+Auth::routes();
 
-Route::get('/','Aluno\AlunoController@index');
+Route::group(['middleware' => 'auth'], function () {
+
+
+    Route::get('/','Aluno\AlunoController@index');
 
 //# Aluno ajax
 Route::get('/verificar-email/{email}','Aluno\AlunoController@verificarEmail');
@@ -24,3 +28,14 @@ Route::resource('/disciplina','Disciplina\DisciplinaController');
 
                                         
 
+
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

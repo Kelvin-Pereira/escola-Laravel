@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.padrao')
 @section('conteudo')
 <br>
 <div class="main main-raised">

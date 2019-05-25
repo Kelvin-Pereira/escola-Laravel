@@ -5,8 +5,10 @@
     <h1 class="text-center">Cadastro de Alunos</h1><hr>
     <div class="container">
 
-        {{ Form::open(['method'=>'PUT', 'route'=>['aluno.update', $alunos->id ] ]) }}
+        {{-- {{ Form::open(['method'=>'PUT', 'route'=>['aluno.update', $alunos->id ] ]) }} --}}
+    <form action="/aluno" method="post" enctype="multipart/form-data" >
          @csrf   
+         <input type="hidden" value="{{$alunos->id}}" name="id">
          <div class="row">
             <div class="col-3">
                 <div class="form-group bmd-form-group">
@@ -71,8 +73,8 @@
          </div>
          <div class="form-group">
             <label for="">Foto</label>
-        <img  width="100%" src="/storage/alunos/{{$alunos->foto}}" alt="{{$alunos->nome}}">
-        <input type="file" class="form-group" name="foto">
+        <img  width="5%" src="/storage/alunos/{{$alunos->foto}}" alt="{{$alunos->nome}}">
+        <input type="file" class="form-group" name="foto" value="/storage/alunos/{{$alunos->foto}}">
      
         </div>
          <br>

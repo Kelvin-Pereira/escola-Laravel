@@ -41,12 +41,13 @@ class AlunoController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->id);
         // dd($request->all());
         $aluno = new Aluno();
 
-        if($request->id){
-            $aluno = $aluno->find($request->id);
-        }
+        // if($request->id){
+        //     $aluno = $aluno->find($request->id);
+        // }
 
         $aluno->fill($request->all());
 
@@ -57,10 +58,19 @@ class AlunoController extends Controller
             $arquivo->store('alunos');
             $aluno->foto = $arquivo->hashName();
         }
-  
-       
+        
+        if($request->id){
+            $aluno = $aluno->find($request->id);
+            $arquivo->store('alunos');
+            $aluno->foto = $arquivo->hashName();
+            $aluno->update($request->all());
+            return redirect(route('aluno.index') );
+
+        } else{       
          $aluno->save();
-         return redirect(route('aluno.index') );
+        }
+
+        return redirect(route('aluno.index') );
 
 
     }
@@ -97,10 +107,28 @@ class AlunoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $alunos = Aluno::find($id);
-        $alunos ->update($request->all());
-        $alunos->save();
-     
+        // dd($request->all());
+        $aluno = new Aluno();
+
+        if($request->id){
+            $aluno = $aluno->find($request->id);
+        }
+
+        $aluno->fill($request->all());
+
+        // UPLOADER de arquivo
+        $arquivo = $request->file('foto');
+
+        if(!$arquivo->getError()){
+            $arquivo->store('alunos');
+            $aluno->foto = $arquivo->hashName();
+        }
+
+
+        $aluno = Aluno::find($id);
+        $aluno ->update($request->all());
+        $aluno->save();
+      
         return redirect()->route('aluno.index');
     }
 

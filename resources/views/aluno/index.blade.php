@@ -8,12 +8,14 @@
        <tr>
            <th>id</th>
            <th>Nome</th>
+           <th>Foto</th>
            <th>Açoes</th>
        </tr>
        @foreach ($alunos as $aluno)
            <tr>
            <td>{{$aluno->id}}</td>
            <td>{{$aluno->nome}}</td>
+           <td><img  width="5%" src="/storage/alunos/{{$aluno->foto}}" alt="{{$aluno->nome}}"></td>
             <td>
         
 
@@ -31,4 +33,3 @@
    </table>
    <br>
 @endsection
-
